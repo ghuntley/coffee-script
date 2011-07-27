@@ -202,3 +202,21 @@ test "block comments inside class bodies", ->
     b: ->
 
   ok B.prototype.a instanceof Function
+
+test "block comments in implicit function call", ->
+  fn = (object) ->
+    eq object.a, 1
+    eq object.b, "test"
+
+  fn
+    ###
+    Block Comment
+    a is 1
+    ###
+    a: 1
+    ###
+    Block Comment
+    b is "test"
+    ###
+    b: "test"
+
