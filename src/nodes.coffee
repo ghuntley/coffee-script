@@ -441,7 +441,7 @@ exports.Comment = class Comment extends Base
   makeReturn:      THIS
 
   compileNode: (o, level) ->
-    code = '/*' + multident(@comment, @tab) + '*/'
+    code = '/**' + multident(@comment, @tab) + '*/'
     code = o.indent + code if (level or o.level) is LEVEL_TOP
     code
 
